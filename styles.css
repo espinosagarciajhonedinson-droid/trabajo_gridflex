@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* HEADER - GRID */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+}
+
+/* NAVBAR - FLEXBOX */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #333;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #667eea;
+}
+
+/* CONTENEDOR PRINCIPAL - GRID */
+.container-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 60vh;
+}
+
+/* SIDEBAR IZQUIERDO - FLEXBOX */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+/* CONTENIDO PRINCIPAL - FLOAT */
+.main-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article {
+    margin-bottom: 2rem;
+}
+
+.article h2 {
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+/* IMAGEN CON FLOAT */
+.img-float {
+    float: left;
+    margin: 0 1rem 1rem 0;
+    border-radius: 8px;
+    border: 2px solid #667eea;
+    max-width: 150px;
+}
+
+/* SIDEBAR DERECHO - FLEXBOX */
+.sidebar-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.widget {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #764ba2;
+}
+
+.widget h4 {
+    color: #764ba2;
+    margin-bottom: 0.5rem;
+}
+
+/* FOOTER - FLEXBOX */
+.footer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #333;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .container-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+        flex-direction: column;
+    }
+    
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+}

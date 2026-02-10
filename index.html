@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout con Grid, Flex y Float</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- SECCIÓN CON GRID -->
+    <header class="header">
+        <h1>Header - Grid Layout</h1>
+    </header>
+
+    <!-- SECCIÓN CON FLEXBOX -->
+    <nav class="navbar">
+        <a href="#inicio">Inicio</a>
+        <a href="#about">Acerca de</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL CON GRID -->
+    <div class="container-grid">
+        <!-- LADO IZQUIERDO CON FLEXBOX -->
+        <aside class="sidebar">
+            <div class="card">
+                <h3>Card 1</h3>
+                <p>Contenido lateral</p>
+            </div>
+            <div class="card">
+                <h3>Card 2</h3>
+                <p>Más contenido</p>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL CON FLOAT -->
+        <main class="main-content">
+            <article class="article">
+                <img src="https://via.placeholder.com/150" alt="Imagen" class="img-float">
+                <h2>Artículo Principal</h2>
+                <p>Este texto fluye alrededor de la imagen usando Float. Float es una técnica clásica para envolver contenido alrededor de elementos.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </article>
+
+            <article class="article">
+                <h2>Otro Artículo</h2>
+                <p>Más contenido aquí para llenar el espacio.</p>
+            </article>
+        </main>
+
+        <!-- LADO DERECHO CON FLEXBOX -->
+        <aside class="sidebar-right">
+            <div class="widget">
+                <h4>Widget 1</h4>
+                <p>Info adicional</p>
+            </div>
+            <div class="widget">
+                <h4>Widget 2</h4>
+                <p>Más widgets</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FOOTER CON FLEXBOX -->
+    <footer class="footer">
+        <p>&copy; 2026 Layout Demo</p>
+        <p>Usando Grid, Flex y Float</p>
+    </footer>
+</body>
+</html>

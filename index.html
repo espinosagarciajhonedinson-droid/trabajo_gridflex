@@ -3,68 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout con Grid, Flex y Float</title>
+    <title>Social Timeline - Jhon</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- SECCIÓN CON GRID -->
+    <!-- HEADER CON BÚSQUEDA -->
     <header class="header">
-        <h1>jhon - Grid Layout</h1>
+        <div class="header-container">
+            <div class="logo">
+                <h1>📱 Social Network</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="🔍 Buscar..." class="search-input">
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn">🔔</button>
+                <button class="icon-btn">💬</button>
+                <button class="icon-btn">👤</button>
+            </div>
+        </div>
     </header>
 
-    <!-- SECCIÓN CON FLEXBOX -->
-    <nav class="navbar">
-        <a href="#inicio">Inicio</a>
-        <a href="#about">Acerca de</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-
-    <!-- CONTENEDOR PRINCIPAL CON GRID -->
-    <div class="container-grid">
-        <!-- LADO IZQUIERDO CON FLEXBOX -->
-        <aside class="sidebar">
-            <div class="card">
-                <h3>Card 1</h3>
-                <p>Contenido lateral</p>
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="main-container">
+        <!-- SIDEBAR IZQUIERDO - NAVEGACIÓN -->
+        <aside class="sidebar-left" role="navigation">
+            <div class="menu-section">
+                <h3>Mi Menú</h3>
+                <ul class="menu-list">
+                    <li><a href="#" class="menu-item active">📰 Inicio</a></li>
+                    <li><a href="#" class="menu-item">👥 Amigos</a></li>
+                    <li><a href="#" class="menu-item">📸 Fotos</a></li>
+                    <li><a href="#" class="menu-item">💾 Guardados</a></li>
+                    <li><a href="#" class="menu-item">⚙️ Configuración</a></li>
+                </ul>
             </div>
-            <div class="card">
-                <h3>Card 2</h3>
-                <p>Más contenido</p>
+
+            <div class="menu-section">
+                <h3>Comunidades</h3>
+                <ul class="menu-list">
+                    <li><a href="#" class="menu-item">🎮 Gaming</a></li>
+                    <li><a href="#" class="menu-item">🏋️ Fitness</a></li>
+                    <li><a href="#" class="menu-item">🍕 Comida</a></li>
+                    <li><a href="#" class="menu-item">✈️ Viajes</a></li>
+                </ul>
             </div>
         </aside>
 
-        <!-- CONTENIDO PRINCIPAL CON FLOAT -->
-        <main class="main-content">
-            <article class="article">
-                <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Imagen" class="img-float">
-                <h2>Artículo Principal</h2>
-                <p>Este texto fluye alrededor de la imagen usando Float. Float es una técnica clásica para envolver contenido alrededor de elementos.</p>
+        <!-- CONTENIDO PRINCIPAL - FEED -->
+        <main class="feed">
+            <!-- CREAR POST -->
+            <div class="create-post">
+                <div class="user-profile">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu perfil" class="profile-pic">
+                    <input type="text" placeholder="¿En qué estás pensando?" class="post-input">
+                </div>
+                <div class="post-actions">
+                    <button class="post-btn">📷 Foto</button>
+                    <button class="post-btn">😊 Emoji</button>
+                    <button class="post-btn">📍 Ubicación</button>
+                </div>
+            </div>
+
+            <!-- POST 1 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="https://ui-avatars.com/api/?name=Jhon+Espinosa&background=667eea&color=fff" alt="Usuario" class="profile-pic-small">
+                    <div class="post-info">
+                        <h4>Jhon Espinosa</h4>
+                        <span class="post-time">hace 2 horas</span>
+                    </div>
+                    <span class="post-menu">⋯</span>
+                </div>
+                
+                <div class="post-content">
+                    <p>¡Hoy fue un excelente día de desarrollo! Acabo de terminar un proyecto con Grid y Flexbox. ¿Qué dicen ustedes de las nuevas técnicas de CSS?</p>
+                </div>
+
+                <img src="https://picsum.photos/600/400?random=1" alt="Contenido del post" class="post-image">
+
+                <div class="post-stats">
+                    <span>👍 234 me gusta</span>
+                    <span>💬 45 comentarios</span>
+                    <span>↗️ 12 compartidos</span>
+                </div>
+
+                <div class="post-actions-footer">
+                    <button class="action-btn">👍 Me gusta</button>
+                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn">↗️ Compartir</button>
+                </div>
+
+                <!-- COMENTARIOS -->
+                <div class="comments-section">
+                    <div class="comment">
+                        <img src="https://ui-avatars.com/api/?name=Ana+Maria&background=764ba2&color=fff" alt="Comentario" class="comment-pic">
+                        <div class="comment-content">
+                            <strong>Ana María</strong>
+                            <p>¡Excelente trabajo! CSS ha evolucionado mucho.</p>
+                            <span class="comment-time">hace 1 hora</span>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <img src="https://ui-avatars.com/api/?name=Carlos&background=667eea&color=fff" alt="Comentario" class="comment-pic">
+                        <div class="comment-content">
+                            <strong>Carlos</strong>
+                            <p>Me encanta cómo se ve. ¿Cuál es tu fuente favorita?</p>
+                            <span class="comment-time">hace 45 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-input">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                    <input type="text" placeholder="Escribe un comentario..." class="comment-field">
+                </div>
             </article>
-ya cerre la 
-            <article class="article">
-                <h2>Otro Artículo</h2>
-                <p>Más contenido aquí para llenar el espacio.</p>
+
+            <!-- POST 2 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="https://ui-avatars.com/api/?name=Maria+Gonzalez&background=50C878&color=fff" alt="Usuario" class="profile-pic-small">
+                    <div class="post-info">
+                        <h4>María González</h4>
+                        <span class="post-time">hace 4 horas</span>
+                    </div>
+                    <span class="post-menu">⋯</span>
+                </div>
+                
+                <div class="post-content">
+                    <p>¡Compartiendo algunos consejos sobre diseño responsivo! 🎨</p>
+                </div>
+                <img src="https://picsum.photos/600/400?random=2" alt="Diseño responsivo" class="post-image">
+
+                <div class="post-stats">
+                    <span>👍 512 me gusta</span>
+                    <span>💬 89 comentarios</span>
+                    <span>↗️ 45 compartidos</span>
+                </div>
+
+                <div class="post-actions-footer">
+                    <button class="action-btn">👍 Me gusta</button>
+                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn">↗️ Compartir</button>
+                </div>
+            </article>
+
+            <!-- POST 3 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="https://ui-avatars.com/api/?name=Pedro+Rodriguez&background=FF6B6B&color=fff" alt="Usuario" class="profile-pic-small">
+                    <div class="post-info">
+                        <h4>Pedro Rodríguez</h4>
+                        <span class="post-time">hace 6 horas</span>
+                    </div>
+                    <span class="post-menu">⋯</span>
+                </div>
+                
+                <div class="post-content">
+                    <p>Les presento mi nuevo proyecto: Una plataforma de aprendizaje con Grid y Flexbox. El código es limpio y responsivo. ¿Qué les parece?</p>
+                </div>
+
+                <img src="https://picsum.photos/600/400?random=3" alt="Proyecto" class="post-image">
+
+                <div class="post-stats">
+                    <span>👍 1.2K me gusta</span>
+                    <span>💬 234 comentarios</span>
+                    <span>↗️ 567 compartidos</span>
+                </div>
+
+                <div class="post-actions-footer">
+                    <button class="action-btn">👍 Me gusta</button>
+                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn">↗️ Compartir</button>
+                </div>
+            </article>
+
+            <!-- POST 4 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="https://ui-avatars.com/api/?name=Laura+Martinez&background=4ECDC4&color=fff" alt="Usuario" class="profile-pic-small">
+                    <div class="post-info">
+                        <h4>Laura Martínez</h4>
+                        <span class="post-time">hace 8 horas</span>
+                    </div>
+                    <span class="post-menu">⋯</span>
+                </div>
+                
+                <div class="post-content">
+                    <p>¡Nuevo día, nuevas oportunidades! 💪 Trabajando en mejorar mis habilidades en CSS Grid.</p>
+                </div>
+                <img src="https://picsum.photos/600/400?random=4" alt="Día de trabajo" class="post-image">
+
+                <div class="post-stats">
+                    <span>👍 789 me gusta</span>
+                    <span>💬 123 comentarios</span>
+                    <span>↗️ 234 compartidos</span>
+                </div>
+
+                <div class="post-actions-footer">
+                    <button class="action-btn">👍 Me gusta</button>
+                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn">↗️ Compartir</button>
+                </div>
             </article>
         </main>
 
-        <!-- LADO DERECHO CON FLEXBOX -->
-        <aside class="sidebar-right">
-            <div class="widget">
-                <h4>Widget 1</h4>
-                <p>Info adicional</p>
+        <!-- SIDEBAR DERECHO - WIDGETS -->
+        <aside class="sidebar-right" role="complementary">
+            <!-- SUGERENCIAS -->
+            <div class="widget-box">
+                <h3 class="widget-title">👥 Sugerencias de amigos</h3>
+                <div class="suggestion">
+                    <img src="https://ui-avatars.com/api/?name=Diego+Lopez&background=FFD93D&color=000" alt="Sugerencia" class="suggestion-pic">
+                    <div class="suggestion-info">
+                        <h5>Diego López</h5>
+                        <p>5 amigos en común</p>
+                    </div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="suggestion">
+                    <img src="https://ui-avatars.com/api/?name=Sofia+Ruiz&background=A8E6CF&color=000" alt="Sugerencia" class="suggestion-pic">
+                    <div class="suggestion-info">
+                        <h5>Sofia Ruiz</h5>
+                        <p>12 amigos en común</p>
+                    </div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="suggestion">
+                    <img src="https://ui-avatars.com/api/?name=Juan+Perez&background=FF8B94&color=fff" alt="Sugerencia" class="suggestion-pic">
+                    <div class="suggestion-info">
+                        <h5>Juan Pérez</h5>
+                        <p>8 amigos en común</p>
+                    </div>
+                    <button class="add-btn">+</button>
+                </div>
             </div>
-            <div class="widget">
-                <h4>Widget 2</h4>
-                <p>Más widgets</p>
+
+            <!-- EVENTOS -->
+            <div class="widget-box">
+                <h3 class="widget-title">📅 Eventos Próximos</h3>
+                <div class="event">
+                    <span class="event-date">FEB 15</span>
+                    <div class="event-info">
+                        <h5>Conferencia de Web Design</h5>
+                        <p>8:00 PM</p>
+                    </div>
+                </div>
+                <div class="event">
+                    <span class="event-date">FEB 20</span>
+                    <div class="event-info">
+                        <h5>Meetup de Desarrolladores</h5>
+                        <p>6:30 PM</p>
+                    </div>
+                </div>
+                <div class="event">
+                    <span class="event-date">FEB 25</span>
+                    <div class="event-info">
+                        <h5>Hackathon CSS Challenge</h5>
+                        <p>10:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PUBLICIDAD -->
+            <div class="widget-box ad">
+                <div class="ad-content">
+                    <h4>🚀 Curso Premium</h4>
+                    <p>Aprende CSS avanzado en 30 días</p>
+                    <button class="ad-btn">Conocer más</button>
+                </div>
+            </div>
+
+            <!-- ENLACE RÁPIDO -->
+            <div class="widget-box">
+                <h3 class="widget-title">🔗 Enlaces Rápidos</h3>
+                <a href="#" class="quick-link">📚 Documentación</a>
+                <a href="#" class="quick-link">💻 Tutoriales</a>
+                <a href="#" class="quick-link">🎓 Recursos</a>
+                <a href="#" class="quick-link">❓ Preguntas</a>
             </div>
         </aside>
     </div>
 
-    <!-- FOOTER CON FLEXBOX -->
+    <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 Layout Demo</p>
-        <p>Usando Grid, Flex y Float</p>
+        <p>&copy; 2026 Social Network - Jhon Espinosa</p>
+        <p>Construido con Grid | Flexbox | Float | Responsive Design</p>
     </footer>
 </body>
 </html>

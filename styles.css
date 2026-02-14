@@ -800,6 +800,202 @@ body {
     background: var(--color-primary);
 }
 
+/* ============ MODAL PERFIL ============ */
+.profile-modal {
+    display: none;
+    position: fixed;
+    z-index: 1800;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.profile-modal-content {
+    background: var(--color-white);
+    border-radius: var(--radius);
+    padding: var(--gap-lg);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--color-text-light);
+    transition: var(--transition);
+}
+
+.profile-close:hover {
+    color: var(--color-primary);
+    transform: scale(1.2);
+}
+
+.profile-header {
+    display: flex;
+    gap: var(--gap-lg);
+    margin-bottom: var(--gap-lg);
+    align-items: flex-start;
+}
+
+.profile-modal-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-primary);
+}
+
+.profile-details h2 {
+    margin: 0 0 var(--gap-sm) 0;
+    color: var(--color-text);
+}
+
+.profile-details p {
+    margin: 0 0 var(--gap-md) 0;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-md);
+    text-align: center;
+}
+
+.stat {
+    padding: var(--gap-sm);
+    background: var(--color-hover);
+    border-radius: var(--radius);
+}
+
+.stat strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+}
+
+.stat span {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.profile-action-btn {
+    width: 100%;
+    padding: 12px var(--gap-lg);
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.profile-action-btn:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+/* Cursor para fotos clickeables */
+.clickable-profile {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.clickable-profile:hover {
+    filter: brightness(0.8);
+    transform: scale(1.05);
+}
+
+.clickable-profile-name {
+    cursor: pointer;
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.clickable-profile-name:hover {
+    text-decoration: underline;
+}
+
+/* ============ LIKES FUNCIONAL ============ */
+.like-btn {
+    transition: var(--transition);
+}
+
+.like-btn.active {
+    background-color: rgba(255, 0, 0, 0.2) !important;
+    color: #ff0000 !important;
+}
+
+.like-count {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.like-count:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* ============ COMENTARIOS INTERACTIVOS ============ */
+.comment-btn {
+    transition: var(--transition);
+}
+
+.comment-btn:active {
+    transform: scale(0.95);
+}
+
+.comments-section {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
+.comment-field {
+    cursor: text;
+    transition: var(--transition);
+}
+
+.comment-field:focus {
+    border-color: var(--color-primary);
+    background: var(--color-white);
+}
+
 /* ============ MODAL CÁMARA ============ */
 .camera-modal {
     display: none;

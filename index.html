@@ -67,12 +67,11 @@
             </div>
 
             <!-- POST 1 -->
-            <article class="post">
+            <article class="post" data-post-id="1" data-likes="234">
                 <div class="post-header">
-                <img src="imagenes/avatars/user1.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
+                    <img src="imagenes/avatars/user1.jpg" alt="Usuario" class="profile-pic-small clickable-profile" data-user="Jhon Espinosa" data-bio="Desarrollador Web">
                     <div class="post-info">
-                        <h4>Jhon Espinosa</h4>
-                        <span class="post-time">hace 2 horas</span>
+                        <h4 class="clickable-profile-name" data-user="Jhon Espinosa">Jhon Espinosa</h4>
                     </div>
                     <span class="post-menu">⋯</span>
                 </div>
@@ -85,19 +84,19 @@
                 <img src="imagenes/posts/post1.jpg" alt="Post 1" hidden>
 
                 <div class="post-stats">
-                    <span>👍 234 me gusta</span>
-                    <span>💬 45 comentarios</span>
+                    <span class="like-count">👍 234 me gusta</span>
+                    <span class="comment-count">💬 45 comentarios</span>
                     <span>↗️ 12 compartidos</span>
                 </div>
 
                 <div class="post-actions-footer">
-                    <button class="action-btn">👍 Me gusta</button>
-                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn like-btn" data-liked="false">👍 Me gusta</button>
+                    <button class="action-btn comment-btn">💬 Comentar</button>
                     <button class="action-btn">↗️ Compartir</button>
                 </div>
 
-                <!-- COMENTARIOS -->
-                <div class="comments-section">
+                <!-- COMENTARIOS (colapsible) -->
+                <div class="comments-section" style="display: none;">
                     <div class="comment">
                         <img src="imagenes/avatars/user2.jpg" alt="Comentario" class="comment-pic" onerror="this.style.display='none'">
                         <div class="comment-content">
@@ -117,17 +116,17 @@
                 </div>
 
                 <div class="comment-input">
-                    <img src="imagenes/avatars/user2.jpg" alt="Tu foto" class="comment-pic" onerror="this.style.display='none'">
-                    <input type="text" placeholder="Escribe un comentario..." class="comment-field">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                    <input type="text" placeholder="Escribe un comentario..." class="comment-field" data-post="1">
                 </div>
             </article>
 
             <!-- POST 2 -->
-            <article class="post">
+            <article class="post" data-post-id="2" data-likes="512">
                 <div class="post-header">
-                    <img src="imagenes/avatars/user4.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
+                    <img src="imagenes/avatars/user4.jpg" alt="Usuario" class="profile-pic-small clickable-profile" data-user="María González" data-bio="Diseñadora Web">
                     <div class="post-info">
-                        <h4>María González</h4>
+                        <h4 class="clickable-profile-name" data-user="María González">María González</h4>
                         <span class="post-time">hace 4 horas</span>
                     </div>
                     <span class="post-menu">⋯</span>
@@ -139,24 +138,40 @@
                 <img src="imagenes/posts/post2.jpg" alt="Diseño responsivo" class="post-image clickable-image" onerror="this.src='imagenes/posts/post2.jpg';">
 
                 <div class="post-stats">
-                    <span>👍 512 me gusta</span>
-                    <span>💬 89 comentarios</span>
+                    <span class="like-count">👍 512 me gusta</span>
+                    <span class="comment-count">💬 89 comentarios</span>
                     <span>↗️ 45 compartidos</span>
                 </div>
 
                 <div class="post-actions-footer">
-                    <button class="action-btn">👍 Me gusta</button>
-                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn like-btn" data-liked="false">👍 Me gusta</button>
+                    <button class="action-btn comment-btn">💬 Comentar</button>
                     <button class="action-btn">↗️ Compartir</button>
+                </div>
+
+                <div class="comments-section" style="display: none;">
+                    <div class="comment">
+                        <img src="imagenes/avatars/user1.jpg" alt="Comentario" class="comment-pic">
+                        <div class="comment-content">
+                            <strong>Jhon Espinosa</strong>
+                            <p>Diseño excelente, muy profesional.</p>
+                            <span class="comment-time">hace 2 horas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-input">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                    <input type="text" placeholder="Escribe un comentario..." class="comment-field" data-post="2">
                 </div>
             </article>
 
             <!-- POST 3 -->
-            <article class="post">
+            <article class="post" data-post-id="3" data-likes="1200">
                 <div class="post-header">
-                    <img src="imagenes/avatars/user5.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
+                    <img src="imagenes/avatars/user5.jpg" alt="Usuario" class="profile-pic-small clickable-profile" data-user="Pedro Rodríguez" data-bio="Desarrollador Full Stack">
                     <div class="post-info">
-                        <h4>Pedro Rodríguez</h4>
+                        <h4 class="clickable-profile-name" data-user="Pedro Rodríguez">Pedro Rodríguez</h4>
                         <span class="post-time">hace 6 horas</span>
                     </div>
                     <span class="post-menu">⋯</span>
@@ -169,24 +184,40 @@
                 <img src="imagenes/posts/post3.jpg" alt="Proyecto" class="post-image clickable-image" onerror="this.src='imagenes/posts/post3.jpg';">
 
                 <div class="post-stats">
-                    <span>👍 1.2K me gusta</span>
-                    <span>💬 234 comentarios</span>
+                    <span class="like-count">👍 1.2K me gusta</span>
+                    <span class="comment-count">💬 234 comentarios</span>
                     <span>↗️ 567 compartidos</span>
                 </div>
 
                 <div class="post-actions-footer">
-                    <button class="action-btn">👍 Me gusta</button>
-                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn like-btn" data-liked="false">👍 Me gusta</button>
+                    <button class="action-btn comment-btn">💬 Comentar</button>
                     <button class="action-btn">↗️ Compartir</button>
+                </div>
+
+                <div class="comments-section" style="display: none;">
+                    <div class="comment">
+                        <img src="imagenes/avatars/user2.jpg" alt="Comentario" class="comment-pic">
+                        <div class="comment-content">
+                            <strong>Ana María</strong>
+                            <p>Proyecto impresionante! Me encantaría ver el código.</p>
+                            <span class="comment-time">hace 1 hora</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-input">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                    <input type="text" placeholder="Escribe un comentario..." class="comment-field" data-post="3">
                 </div>
             </article>
 
             <!-- POST 4 -->
-            <article class="post">
+            <article class="post" data-post-id="4" data-likes="789">
                 <div class="post-header">
-                    <img src="imagenes/avatars/user6.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
+                    <img src="imagenes/avatars/user6.jpg" alt="Usuario" class="profile-pic-small clickable-profile" data-user="Laura Martínez" data-bio="Especialista en UX/UI">
                     <div class="post-info">
-                        <h4>Laura Martínez</h4>
+                        <h4 class="clickable-profile-name" data-user="Laura Martínez">Laura Martínez</h4>
                         <span class="post-time">hace 8 horas</span>
                     </div>
                     <span class="post-menu">⋯</span>
@@ -198,15 +229,31 @@
                 <img src="imagenes/posts/post4.jpg" alt="Día de trabajo" class="post-image clickable-image" onerror="this.src='imagenes/posts/post4.jpg';">
 
                 <div class="post-stats">
-                    <span>👍 789 me gusta</span>
-                    <span>💬 123 comentarios</span>
+                    <span class="like-count">👍 789 me gusta</span>
+                    <span class="comment-count">💬 123 comentarios</span>
                     <span>↗️ 234 compartidos</span>
                 </div>
 
                 <div class="post-actions-footer">
-                    <button class="action-btn">👍 Me gusta</button>
-                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn like-btn" data-liked="false">👍 Me gusta</button>
+                    <button class="action-btn comment-btn">💬 Comentar</button>
                     <button class="action-btn">↗️ Compartir</button>
+                </div>
+
+                <div class="comments-section" style="display: none;">
+                    <div class="comment">
+                        <img src="imagenes/avatars/user3.jpg" alt="Comentario" class="comment-pic">
+                        <div class="comment-content">
+                            <strong>Carlos</strong>
+                            <p>¡Eso es! Nunca dejes de aprender 🚀</p>
+                            <span class="comment-time">hace 3 horas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-input">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                    <input type="text" placeholder="Escribe un comentario..." class="comment-field" data-post="4">
                 </div>
             </article>
         </main>
@@ -294,6 +341,35 @@
         <p>Construido con Grid | Flexbox | Float | Responsive Design</p>
     </footer>
 
+    <!-- MODAL PERFIL -->
+    <div id="profileModal" class="profile-modal">
+        <div class="profile-modal-content">
+            <span class="profile-close">&times;</span>
+            <div class="profile-header">
+                <img id="profileImage" src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Perfil" class="profile-modal-pic">
+                <div class="profile-details">
+                    <h2 id="profileName">Jhon Espinosa</h2>
+                    <p id="profileBio">Desarrollador Web | Entusiasta de CSS</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <strong id="postCount">0</strong>
+                            <span>Posts</span>
+                        </div>
+                        <div class="stat">
+                            <strong id="followerCount">0</strong>
+                            <span>Seguidores</span>
+                        </div>
+                        <div class="stat">
+                            <strong id="followingCount">0</strong>
+                            <span>Siguiendo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="profile-action-btn">Seguir</button>
+        </div>
+    </div>
+
     <!-- MODAL CÁMARA -->
     <div id="cameraModal" class="camera-modal">
         <div class="camera-container">
@@ -321,8 +397,143 @@
         </div>
     </div>
 
-    <!-- SCRIPT CÁMARA Y LIGHTBOX ROBUSTO -->
+    <!-- SCRIPT COMPLETO: CÁMARA, LIGHTBOX, LIKES, COMENTARIOS Y PERFIL -->
     <script>
+        // ========== FUNCIONALIDAD DE PERFIL ==========
+        const profileModal = document.getElementById('profileModal');
+        const profileClose = document.querySelector('.profile-close');
+        const clickableProfiles = document.querySelectorAll('.clickable-profile');
+        const clickableNames = document.querySelectorAll('.clickable-profile-name');
+
+        function openProfile(userName, userBio) {
+            document.getElementById('profileName').textContent = userName;
+            document.getElementById('profileBio').textContent = userBio;
+            document.getElementById('postCount').textContent = Math.floor(Math.random() * 100) + 50;
+            document.getElementById('followerCount').textContent = Math.floor(Math.random() * 10000) + 1000;
+            document.getElementById('followingCount').textContent = Math.floor(Math.random() * 5000) + 500;
+            profileModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        clickableProfiles.forEach(profile => {
+            profile.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const userName = profile.dataset.user || 'Usuario';
+                const userBio = profile.dataset.bio || 'Sin biografía';
+                openProfile(userName, userBio);
+            });
+        });
+
+        clickableNames.forEach(name => {
+            name.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const userName = name.dataset.user || 'Usuario';
+                const userBio = name.parentElement.parentElement.querySelector('.post-header img').dataset.bio || 'Sin biografía';
+                openProfile(userName, userBio);
+            });
+        });
+
+        profileClose.addEventListener('click', () => {
+            profileModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        profileModal.addEventListener('click', (e) => {
+            if (e.target === profileModal) {
+                profileModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // ========== FUNCIONALIDAD DE LIKES ==========
+        const likeBtns = document.querySelectorAll('.like-btn');
+        const likesData = {};
+
+        likeBtns.forEach(btn => {
+            const post = btn.closest('.post');
+            const postId = post.dataset.postId;
+            likesData[postId] = { liked: false, count: parseInt(post.dataset.likes) || 0 };
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const liked = likesData[postId].liked;
+
+                if (!liked) {
+                    likesData[postId].liked = true;
+                    likesData[postId].count++;
+                    btn.classList.add('active');
+                    btn.textContent = '❤️ Me gusta';
+                } else {
+                    likesData[postId].liked = false;
+                    likesData[postId].count--;
+                    btn.classList.remove('active');
+                    btn.textContent = '👍 Me gusta';
+                }
+
+                const likeCount = post.querySelector('.like-count');
+                likeCount.textContent = `👍 ${likesData[postId].count} me gusta`;
+            });
+        });
+
+        // ========== FUNCIONALIDAD DE COMENTARIOS ==========
+        const commentBtns = document.querySelectorAll('.comment-btn');
+        const commentFields = document.querySelectorAll('.comment-field');
+
+        commentBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const post = btn.closest('.post');
+                const commentsSection = post.querySelector('.comments-section');
+                const isOpen = commentsSection.style.display !== 'none';
+
+                if (isOpen) {
+                    commentsSection.style.display = 'none';
+                    btn.textContent = '💬 Comentar';
+                } else {
+                    commentsSection.style.display = 'block';
+                    btn.textContent = '🔽 Cerrar comentarios';
+                    post.querySelector('.comment-field').focus();
+                }
+            });
+        });
+
+        commentFields.forEach(field => {
+            field.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && field.value.trim()) {
+                    addComment(field);
+                }
+            });
+        });
+
+        function addComment(field) {
+            const commentText = field.value.trim();
+            if (!commentText) return;
+
+            const post = field.closest('.post');
+            const commentSection = post.querySelector('.comments-section');
+            const postId = post.dataset.postId;
+
+            const newComment = document.createElement('div');
+            newComment.className = 'comment';
+            newComment.innerHTML = `
+                <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                <div class="comment-content">
+                    <strong>Tú (Jhon Espinosa)</strong>
+                    <p>${commentText}</p>
+                    <span class="comment-time">justo ahora</span>
+                </div>
+            `;
+
+            commentSection.insertBefore(newComment, commentSection.querySelector('.comment-input'));
+
+            // Actualizar contador
+            const commentCount = post.querySelector('.comment-count');
+            const currentCount = parseInt(commentCount.textContent.match(/\\d+/)[0]) || 0;
+            commentCount.textContent = `💬 ${currentCount + 1} comentarios`;
+
+            field.value = '';
+        }
+
         // ========== FUNCIONALIDAD DE CÁMARA ==========
         const cameraModal = document.getElementById('cameraModal');
         const cameraStream = document.getElementById('cameraStream');
@@ -334,14 +545,12 @@
         const usePhotoBtn = document.getElementById('usePhotoBtn');
         const galleryBtn = document.getElementById('galleryBtn');
         const galleryInput = document.getElementById('galleryInput');
-        const publishBtn = document.getElementById('publishBtn');
         const postText = document.getElementById('postText');
 
         let stream = null;
         let capturedImage = null;
         let ctx = photoCanvas.getContext('2d');
 
-        // Abrir cámara
         cameraBtn.addEventListener('click', async () => {
             try {
                 stream = await navigator.mediaDevices.getUserMedia({ 
@@ -359,7 +568,6 @@
             }
         });
 
-        // Capturar foto
         captureBtn.addEventListener('click', () => {
             photoCanvas.width = cameraStream.videoWidth;
             photoCanvas.height = cameraStream.videoHeight;
@@ -367,7 +575,6 @@
             
             capturedImage = photoCanvas.toDataURL('image/jpeg', 0.9);
             
-            // Mostrar preview
             cameraStream.style.display = 'none';
             photoCanvas.style.display = 'block';
             
@@ -376,7 +583,6 @@
             usePhotoBtn.style.display = 'block';
         });
 
-        // Reintentar
         retakeBtn.addEventListener('click', () => {
             cameraStream.style.display = 'block';
             photoCanvas.style.display = 'none';
@@ -386,7 +592,6 @@
             ctx.clearRect(0, 0, photoCanvas.width, photoCanvas.height);
         });
 
-        // Usar foto capturada
         usePhotoBtn.addEventListener('click', () => {
             if (stream) {
                 stream.getTracks().forEach(track => track.stop());
@@ -395,11 +600,9 @@
             cameraStream.style.display = 'block';
             photoCanvas.style.display = 'none';
             
-            // Agregar foto al post actual
             createPostWithPhoto(capturedImage);
         });
 
-        // Cerrar cámara
         cameraClose.addEventListener('click', () => {
             if (stream) {
                 stream.getTracks().forEach(track => track.stop());
@@ -412,7 +615,6 @@
             usePhotoBtn.style.display = 'none';
         });
 
-        // Galería
         galleryBtn.addEventListener('click', () => {
             galleryInput.click();
         });
@@ -428,20 +630,19 @@
             }
         });
 
-        // Crear post con foto
         function createPostWithPhoto(imageDataUrl) {
             const postContent = postText.value || '¡Compartiendo mi momento! 📸';
-            const now = new Date();
-            const timeString = 'ahora';
 
             const newPost = document.createElement('article');
             newPost.className = 'post';
+            newPost.dataset.postId = Math.random().toString(36).substr(2, 9);
+            newPost.dataset.likes = 0;
             newPost.innerHTML = `
                 <div class="post-header">
-                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu perfil" class="profile-pic-small">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu perfil" class="profile-pic-small clickable-profile" data-user="Jhon Espinosa" data-bio="Desarrollador Web">
                     <div class="post-info">
-                        <h4>Jhon Espinosa (Tú)</h4>
-                        <span class="post-time">${timeString}</span>
+                        <h4 class="clickable-profile-name" data-user="Jhon Espinosa">Jhon Espinosa</h4>
+                        <span class="post-time">ahora</span>
                     </div>
                     <span class="post-menu">⋯</span>
                 </div>
@@ -450,37 +651,93 @@
                     <p>${postContent}</p>
                 </div>
 
-                <img src="${imageDataUrl}" alt="Foto capturada" class="post-image clickable-image" onerror="this.style.display='none';">
+                <img src="${imageDataUrl}" alt="Foto capturada" class="post-image clickable-image">
 
                 <div class="post-stats">
-                    <span>👍 0 me gusta</span>
-                    <span>💬 0 comentarios</span>
+                    <span class="like-count">👍 0 me gusta</span>
+                    <span class="comment-count">💬 0 comentarios</span>
                     <span>↗️ 0 compartidos</span>
                 </div>
 
                 <div class="post-actions-footer">
-                    <button class="action-btn">👍 Me gusta</button>
-                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn like-btn" data-liked="false">👍 Me gusta</button>
+                    <button class="action-btn comment-btn">💬 Comentar</button>
                     <button class="action-btn">↗️ Compartir</button>
+                </div>
+
+                <div class="comments-section" style="display: none;"></div>
+
+                <div class="comment-input">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                    <input type="text" placeholder="Escribe un comentario..." class="comment-field">
                 </div>
             `;
 
             const feed = document.querySelector('.feed');
-            const firstPost = feed.querySelector('.post');
-            feed.insertBefore(newPost, firstPost);
+            const createPost = feed.querySelector('.create-post');
+            feed.insertBefore(newPost, createPost.nextSibling);
 
-            // Agregar evento click a la nueva imagen
-            const newImage = newPost.querySelector('.clickable-image');
-            if (newImage) {
-                newImage.style.cursor = 'pointer';
-                newImage.addEventListener('click', () => {
-                    currentImageIndex = images.length;
-                    modalImage.src = imageDataUrl;
-                    modalImage.alt = 'Foto capturada';
-                    modal.style.display = 'flex';
+            // Agregar event listeners al nuevo post
+            const newLikeBtn = newPost.querySelector('.like-btn');
+            const newCommentBtn = newPost.querySelector('.comment-btn');
+            const newCommentField = newPost.querySelector('.comment-field');
+            const newProfilePics = newPost.querySelectorAll('.clickable-profile');
+            const newProfileName = newPost.querySelector('.clickable-profile-name');
+
+            likesData[newPost.dataset.postId] = { liked: false, count: 0 };
+
+            newLikeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const postId = newPost.dataset.postId;
+                const liked = likesData[postId].liked;
+
+                if (!liked) {
+                    likesData[postId].liked = true;
+                    likesData[postId].count++;
+                    this.classList.add('active');
+                    this.textContent = '❤️ Me gusta';
+                } else {
+                    likesData[postId].liked = false;
+                    likesData[postId].count--;
+                    this.classList.remove('active');
+                    this.textContent = '👍 Me gusta';
+                }
+
+                newPost.querySelector('.like-count').textContent = `👍 ${likesData[postId].count} me gusta`;
+            });
+
+            newCommentBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const commentsSection = newPost.querySelector('.comments-section');
+                const isOpen = commentsSection.style.display !== 'none';
+
+                if (isOpen) {
+                    commentsSection.style.display = 'none';
+                    newCommentBtn.textContent = '💬 Comentar';
+                } else {
+                    commentsSection.style.display = 'block';
+                    newCommentBtn.textContent = '🔽 Cerrar comentarios';
+                    newCommentField.focus();
+                }
+            });
+
+            newCommentField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && newCommentField.value.trim()) {
+                    addComment(newCommentField);
+                }
+            });
+
+            newProfilePics.forEach(pic => {
+                pic.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openProfile('Jhon Espinosa', 'Desarrollador Web');
                 });
-                images.push({ src: imageDataUrl, alt: 'Foto capturada', element: newImage });
-            }
+            });
+
+            newProfileName.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openProfile('Jhon Espinosa', 'Desarrollador Web');
+            });
 
             postText.value = '';
             alert('¡Post publicado exitosamente! 🎉');
@@ -604,7 +861,6 @@
 
         window.addEventListener('load', initImages);
 
-        // Cleanup de cámara al cerrar página
         window.addEventListener('beforeunload', () => {
             if (stream) {
                 stream.getTracks().forEach(track => track.stop());

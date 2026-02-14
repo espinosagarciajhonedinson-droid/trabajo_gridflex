@@ -17,9 +17,9 @@
                 <input type="text" placeholder="🔍 Buscar..." class="search-input">
             </div>
             <div class="header-icons">
-                <button class="icon-btn">🔔</button>
-                <button class="icon-btn">💬</button>
-                <button class="icon-btn">👤</button>
+                <button class="icon-btn" id="notificationBtn">🔔<span class="notification-badge" id="notificationBadge" style="display: none;">3</span></button>
+                <button class="icon-btn" id="messageBtn">💬<span class="notification-badge" id="messageBadge" style="display: none;">2</span></button>
+                <button class="icon-btn" id="profileIconBtn">👤</button>
             </div>
         </div>
     </header>
@@ -397,8 +397,248 @@
         </div>
     </div>
 
-    <!-- SCRIPT COMPLETO: CÁMARA, LIGHTBOX, LIKES, COMENTARIOS Y PERFIL -->
+    <!-- MODAL NOTIFICACIONES -->
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-modal-content">
+            <div class="notification-header">
+                <h3>🔔 Notificaciones</h3>
+                <span class="notification-close">&times;</span>
+            </div>
+            <div class="notification-list" id="notificationList">
+                <div class="notification-item">
+                    <img src="imagenes/avatars/user1.jpg" alt="Usuario">
+                    <div class="notification-text">
+                        <strong>Ana María</strong>
+                        <p>le gustó tu foto</p>
+                        <span class="notification-time">hace 5 minutos</span>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <img src="imagenes/avatars/user2.jpg" alt="Usuario">
+                    <div class="notification-text">
+                        <strong>Carlos López</strong>
+                        <p>comentó en tu post</p>
+                        <span class="notification-time">hace 1 hora</span>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <img src="imagenes/avatars/user3.jpg" alt="Usuario">
+                    <div class="notification-text">
+                        <strong>María Fernández</strong>
+                        <p>empezó a seguirte</p>
+                        <span class="notification-time">hace 2 horas</span>
+                    </div>
+                </div>
+            </div>
+            <button class="clear-notifications-btn">Limpiar notificaciones</button>
+        </div>
+    </div>
+
+    <!-- MODAL MENSAJES -->
+    <div id="messageModal" class="message-modal">
+        <div class="message-modal-content">
+            <div class="message-header">
+                <h3>💬 Mensajes</h3>
+                <span class="message-close">&times;</span>
+            </div>
+            <div class="message-list" id="messageList">
+                <div class="message-thread" data-user-id="1">
+                    <img src="imagenes/avatars/user1.jpg" alt="Usuario">
+                    <div class="message-preview">
+                        <strong>Ana María</strong>
+                        <p>¿Cómo estás? ¿Vamos al cine?</p>
+                    </div>
+                </div>
+                <div class="message-thread" data-user-id="2">
+                    <img src="imagenes/avatars/user2.jpg" alt="Usuario">
+                    <div class="message-preview">
+                        <strong>Carlos López</strong>
+                        <p>Genial tu última foto</p>
+                    </div>
+                </div>
+            </div>
+            <div class="message-compose">
+                <input type="text" id="messageInput" placeholder="Escribe un mensaje..." class="message-input">
+                <button id="sendMessageBtn" class="send-message-btn">📤 Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHAT INDIVIDUAL -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-modal-content">
+            <div class="chat-header">
+                <img id="chatUserImage" src="" alt="Usuario" class="chat-user-image">
+                <h3 id="chatUserName">Usuario</h3>
+                <span class="chat-close">&times;</span>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Escribe un mensaje..." class="chat-input">
+                <button id="sendChatBtn" class="send-chat-btn">📤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT COMPLETO: CÁMARA, LIGHTBOX, LIKES, COMENTARIOS, PERFIL, NOTIFICACIONES Y MENSAJES -->
     <script>
+        // ========== FUNCIONALIDAD DE NOTIFICACIONES ==========
+        const notificationBtn = document.getElementById('notificationBtn');
+        const notificationModal = document.getElementById('notificationModal');
+        const notificationClose = document.querySelector('.notification-close');
+        const notificationBadge = document.getElementById('notificationBadge');
+        const clearNotificationsBtn = document.querySelector('.clear-notifications-btn');
+
+        notificationBtn.addEventListener('click', () => {
+            notificationModal.style.display = notificationModal.style.display === 'flex' ? 'none' : 'flex';
+            if (notificationModal.style.display === 'flex') {
+                notificationBadge.style.display = 'none';
+            }
+        });
+
+        notificationClose.addEventListener('click', () => {
+            notificationModal.style.display = 'none';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.notification-modal') && !e.target.closest('#notificationBtn')) {
+                notificationModal.style.display = 'none';
+            }
+        });
+
+        clearNotificationsBtn.addEventListener('click', () => {
+            document.getElementById('notificationList').innerHTML = '<p style="padding: 20px; text-align: center; color: #999;">No hay notificaciones</p>';
+            notificationBadge.style.display = 'none';
+        });
+
+        // ========== FUNCIONALIDAD DE MENSAJES ==========
+        const messageBtn = document.getElementById('messageBtn');
+        const messageModal = document.getElementById('messageModal');
+        const messageClose = document.querySelector('.message-close');
+        const messageBadge = document.getElementById('messageBadge');
+        const messageList = document.getElementById('messageList');
+        const messageInput = document.getElementById('messageInput');
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const chatModal = document.getElementById('chatModal');
+        const chatClose = document.querySelector('.chat-close');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+
+        const users = [
+            { id: 1, name: 'Ana María', image: 'imagenes/avatars/user1.jpg' },
+            { id: 2, name: 'Carlos López', image: 'imagenes/avatars/user2.jpg' }
+        ];
+
+        const userChats = {};
+        users.forEach(user => {
+            userChats[user.id] = [];
+        });
+
+        messageBtn.addEventListener('click', () => {
+            messageModal.style.display = messageModal.style.display === 'flex' ? 'none' : 'flex';
+            if (messageModal.style.display === 'flex') {
+                messageBadge.style.display = 'none';
+            }
+        });
+
+        messageClose.addEventListener('click', () => {
+            messageModal.style.display = 'none';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.message-modal') && !e.target.closest('#messageBtn')) {
+                messageModal.style.display = 'none';
+            }
+        });
+
+        messageList.addEventListener('click', (e) => {
+            const thread = e.target.closest('.message-thread');
+            if (thread) {
+                const userId = thread.dataset.userId;
+                const user = users.find(u => u.id == userId);
+                openChat(user);
+            }
+        });
+
+        function openChat(user) {
+            messageModal.style.display = 'none';
+            chatModal.style.display = 'flex';
+            document.getElementById('chatUserName').textContent = user.name;
+            document.getElementById('chatUserImage').src = user.image;
+            chatInput.dataset.userId = user.id;
+            
+            // Cargar mensajes previos
+            chatMessages.innerHTML = '';
+            if (userChats[user.id].length > 0) {
+                userChats[user.id].forEach(msg => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = `chat-message ${msg.sender === 'me' ? 'my-message' : 'their-message'}`;
+                    msgDiv.textContent = msg.text;
+                    chatMessages.appendChild(msgDiv);
+                });
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        chatClose.addEventListener('click', () => {
+            chatModal.style.display = 'none';
+        });
+
+        sendMessageBtn.addEventListener('click', () => {
+            if (messageInput.value.trim()) {
+                const newThread = document.createElement('div');
+                newThread.className = 'message-thread';
+                newThread.dataset.userId = 'custom';
+                newThread.innerHTML = `
+                    <img src="imagenes/avatars/user4.jpg" alt="Usuario">
+                    <div class="message-preview">
+                        <strong>Nuevo contacto</strong>
+                        <p>${messageInput.value}</p>
+                    </div>
+                `;
+                messageList.insertBefore(newThread, messageList.lastChild);
+                messageInput.value = '';
+            }
+        });
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageBtn.click();
+            }
+        });
+
+        sendChatBtn.addEventListener('click', () => {
+            if (chatInput.value.trim()) {
+                const userId = chatInput.dataset.userId;
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'chat-message my-message';
+                msgDiv.textContent = chatInput.value;
+                chatMessages.appendChild(msgDiv);
+                
+                userChats[userId].push({ sender: 'me', text: chatInput.value });
+                
+                // Simular respuesta después de 1 segundo
+                setTimeout(() => {
+                    const responseDiv = document.createElement('div');
+                    responseDiv.className = 'chat-message their-message';
+                    responseDiv.textContent = '¡Entendido! 😊';
+                    chatMessages.appendChild(responseDiv);
+                    userChats[userId].push({ sender: 'them', text: '¡Entendido! 😊' });
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+                
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatInput.value = '';
+            }
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendChatBtn.click();
+            }
+        });
+
         // ========== FUNCIONALIDAD DE PERFIL ==========
         const profileModal = document.getElementById('profileModal');
         const profileClose = document.querySelector('.profile-close');

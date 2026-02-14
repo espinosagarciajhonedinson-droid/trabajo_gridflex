@@ -381,6 +381,7 @@
             <div class="camera-controls">
                 <button id="captureBtn" class="camera-btn capture-btn">📸 Capturar</button>
                 <button id="retakeBtn" class="camera-btn retake-btn" style="display: none;">🔄 Reintentar</button>
+                <button id="deletePhotoBtn" class="camera-btn delete-btn" style="display: none;">🗑️ Eliminar</button>
                 <button id="usePhotoBtn" class="camera-btn use-btn" style="display: none;">✓ Usar Foto</button>
             </div>
         </div>
@@ -1019,6 +1020,7 @@
         const cameraBtn = document.getElementById('cameraBtn');
         const captureBtn = document.getElementById('captureBtn');
         const retakeBtn = document.getElementById('retakeBtn');
+        const deletePhotoBtn = document.getElementById('deletePhotoBtn');
         const usePhotoBtn = document.getElementById('usePhotoBtn');
         const galleryBtn = document.getElementById('galleryBtn');
         const galleryInput = document.getElementById('galleryInput');
@@ -1037,6 +1039,7 @@
                 cameraModal.style.display = 'flex';
                 captureBtn.style.display = 'block';
                 retakeBtn.style.display = 'none';
+                deletePhotoBtn.style.display = 'none';
                 usePhotoBtn.style.display = 'none';
                 postText.value = '';
             } catch (error) {
@@ -1057,6 +1060,7 @@
             
             captureBtn.style.display = 'none';
             retakeBtn.style.display = 'block';
+            deletePhotoBtn.style.display = 'block';
             usePhotoBtn.style.display = 'block';
         });
 
@@ -1065,8 +1069,21 @@
             photoCanvas.style.display = 'none';
             captureBtn.style.display = 'block';
             retakeBtn.style.display = 'none';
+            deletePhotoBtn.style.display = 'none';
             usePhotoBtn.style.display = 'none';
             ctx.clearRect(0, 0, photoCanvas.width, photoCanvas.height);
+        });
+
+        deletePhotoBtn.addEventListener('click', () => {
+            cameraStream.style.display = 'block';
+            photoCanvas.style.display = 'none';
+            captureBtn.style.display = 'block';
+            retakeBtn.style.display = 'none';
+            deletePhotoBtn.style.display = 'none';
+            usePhotoBtn.style.display = 'none';
+            capturedImage = null;
+            ctx.clearRect(0, 0, photoCanvas.width, photoCanvas.height);
+            alert('Foto eliminada. Intenta de nuevo.');
         });
 
         usePhotoBtn.addEventListener('click', () => {
@@ -1089,6 +1106,7 @@
             photoCanvas.style.display = 'none';
             captureBtn.style.display = 'block';
             retakeBtn.style.display = 'none';
+            deletePhotoBtn.style.display = 'none';
             usePhotoBtn.style.display = 'none';
         });
 

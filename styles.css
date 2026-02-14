@@ -1154,6 +1154,18 @@ body {
     color: #00ff88;
 }
 
+.delete-btn {
+    background: rgba(255, 107, 107, 0.2);
+    border-color: #ff6b6b;
+    color: #ff8888;
+}
+
+.delete-btn:hover {
+    background: #ff6b6b;
+    border-color: #ff5252;
+    transform: translateY(-2px);
+}
+
 .use-btn:hover {
     background: #00c864;
     border-color: #00c864;

@@ -953,6 +953,105 @@
             });
         });
 
+        // ========== MENÚ DE PUBLICACIÓN (⋯) ==========
+        const postOptionsMenu = document.createElement('div');
+        postOptionsMenu.className = 'post-options-menu';
+        postOptionsMenu.innerHTML = `
+            <button type="button" class="post-option-btn delete">
+                <span class="post-option-icon">🗑️</span>
+                <span>Eliminar publicación</span>
+            </button>
+        `;
+        document.body.appendChild(postOptionsMenu);
+
+        const deletePostOptionBtn = postOptionsMenu.querySelector('.post-option-btn.delete');
+        let activePost = null;
+
+        document.querySelectorAll('.post-menu').forEach(menuBtn => {
+            menuBtn.setAttribute('title', 'Opciones de publicación');
+            menuBtn.setAttribute('role', 'button');
+            menuBtn.setAttribute('tabindex', '0');
+        });
+
+        function closePostOptionsMenu() {
+            postOptionsMenu.classList.remove('show');
+            activePost = null;
+        }
+
+        function openPostOptionsMenu(trigger, post) {
+            activePost = post;
+            const rect = trigger.getBoundingClientRect();
+            postOptionsMenu.classList.add('show');
+
+            const spacing = 8;
+            const menuWidth = postOptionsMenu.offsetWidth || 240;
+            const menuHeight = postOptionsMenu.offsetHeight || 56;
+
+            const maxLeft = window.innerWidth - menuWidth - spacing;
+            const left = Math.min(maxLeft, Math.max(spacing, rect.right - menuWidth));
+
+            const hasSpaceBottom = rect.bottom + spacing + menuHeight <= window.innerHeight;
+            const top = hasSpaceBottom
+                ? rect.bottom + spacing
+                : Math.max(spacing, rect.top - menuHeight - spacing);
+
+            postOptionsMenu.style.top = `${top}px`;
+            postOptionsMenu.style.left = `${left}px`;
+        }
+
+        deletePostOptionBtn.addEventListener('click', () => {
+            if (!activePost) return;
+
+            const confirmed = confirm('¿Seguro que deseas eliminar esta publicación?');
+            if (!confirmed) return;
+
+            const postId = activePost.dataset.postId;
+            activePost.remove();
+            delete likesData[postId];
+            closePostOptionsMenu();
+            alert('Publicación eliminada.');
+        });
+
+        document.addEventListener('click', (e) => {
+            const postMenuBtn = e.target.closest('.post-menu');
+            if (postMenuBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const post = postMenuBtn.closest('.post');
+                if (!post) return;
+
+                const isSamePost = activePost === post && postOptionsMenu.classList.contains('show');
+                if (isSamePost) {
+                    closePostOptionsMenu();
+                } else {
+                    openPostOptionsMenu(postMenuBtn, post);
+                }
+                return;
+            }
+
+            if (!e.target.closest('.post-options-menu')) {
+                closePostOptionsMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+
+            const postMenuBtn = e.target.closest('.post-menu');
+            if (!postMenuBtn) return;
+
+            e.preventDefault();
+            const post = postMenuBtn.closest('.post');
+            if (!post) return;
+            openPostOptionsMenu(postMenuBtn, post);
+        });
+
+        window.addEventListener('resize', closePostOptionsMenu);
+        window.addEventListener('scroll', closePostOptionsMenu, true);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closePostOptionsMenu();
+        });
+
         // ========== FUNCIONALIDAD DE COMENTARIOS ==========
         const commentBtns = document.querySelectorAll('.comment-btn');
         const commentFields = document.querySelectorAll('.comment-field');

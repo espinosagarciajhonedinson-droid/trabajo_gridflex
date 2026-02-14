@@ -262,31 +262,27 @@
             <!-- SUGERENCIAS -->
             <div class="widget-box">
                 <h3 class="widget-title">👥 Sugerencias de amigos</h3>
-                <div class="suggestion">
+                <div class="suggestion" data-friend-id="1" data-friend-name="Diego López" data-friend-image="imagenes/avatars/user1.jpg" data-friend-bio="Diseñador de interfaces">
                     <img src="imagenes/avatars/user1.jpg" alt="Sugerencia" class="suggestion-pic">
                     <div class="suggestion-info">
                         <h5>Diego López</h5>
                         <p>5 amigos en común</p>
                     </div>
-                    <button class="add-btn">+</button>
-                </div>
-                <div class="suggestion">
+                    <button class="add-btn add-friend-btn" data-friend-id="1">+</button> data-friend-name="Sofia Ruiz" data-friend-image="imagenes/avatars/user5.jpg" data-friend-bio="Especialista en marketing">
                     <img src="imagenes/avatars/user5.jpg" alt="Sugerencia" class="suggestion-pic">
                     <div class="suggestion-info">
                         <h5>Sofia Ruiz</h5>
                         <p>12 amigos en común</p>
                     </div>
-                    <button class="add-btn">+</button>
+                    <button class="add-btn add-friend-btn" data-friend-id="5">+</button>
                 </div>
-                <div class="suggestion">
+                <div class="suggestion" data-friend-id="7" data-friend-name="Juan Pérez" data-friend-image="imagenes/avatars/user7.jpg" data-friend-bio="Desarrollador Backend">
                     <img src="imagenes/avatars/user7.jpg" alt="Sugerencia" class="suggestion-pic">
                     <div class="suggestion-info">
                         <h5>Juan Pérez</h5>
                         <p>8 amigos en común</p>
                     </div>
-                    <button class="add-btn">+</button>
-                </div>
-            </div>
+                    <button class="add-btn add-friend-btn" data-friend-id="7">+</button>
 
             <!-- EVENTOS -->
             <div class="widget-box">
@@ -488,8 +484,8 @@
                 <h2>👥 Mis Amigos</h2>
                 <span class="menu-modal-close" onclick="closeMenuModal('friendsModal')">&times;</span>
             </div>
-            <div class="menu-modal-body">
-                <div class="friend-item">
+            <div class="menu-modal-body" id="friendsList">
+                <div class="friend-item" data-friend-id="2">
                     <img src="imagenes/avatars/user2.jpg" alt="Ana María">
                     <div class="friend-info">
                         <h4>Ana María</h4>
@@ -497,7 +493,7 @@
                     </div>
                     <button class="friend-action-btn">Ver perfil</button>
                 </div>
-                <div class="friend-item">
+                <div class="friend-item" data-friend-id="3">
                     <img src="imagenes/avatars/user3.jpg" alt="Carlos">
                     <div class="friend-info">
                         <h4>Carlos López</h4>
@@ -505,7 +501,7 @@
                     </div>
                     <button class="friend-action-btn">Ver perfil</button>
                 </div>
-                <div class="friend-item">
+                <div class="friend-item" data-friend-id="4">
                     <img src="imagenes/avatars/user4.jpg" alt="María">
                     <div class="friend-info">
                         <h4>María González</h4>
@@ -513,7 +509,7 @@
                     </div>
                     <button class="friend-action-btn">Ver perfil</button>
                 </div>
-                <div class="friend-item">
+                <div class="friend-item" data-friend-id="5">
                     <img src="imagenes/avatars/user5.jpg" alt="Pedro">
                     <div class="friend-info">
                         <h4>Pedro Rodríguez</h4>
@@ -521,7 +517,7 @@
                     </div>
                     <button class="friend-action-btn">Ver perfil</button>
                 </div>
-                <div class="friend-item">
+                <div class="friend-item" data-friend-id="6">
                     <img src="imagenes/avatars/user6.jpg" alt="Laura">
                     <div class="friend-info">
                         <h4>Laura Martínez</h4>
@@ -529,7 +525,7 @@
                     </div>
                     <button class="friend-action-btn">Ver perfil</button>
                 </div>
-                <div class="friend-item">
+                <div class="friend-item" data-friend-id="7">
                     <img src="imagenes/avatars/user7.jpg" alt="Juan">
                     <div class="friend-info">
                         <h4>Juan Pérez</h4>
@@ -1445,6 +1441,135 @@
             if (confirm('¿Deseas cerrar sesión?')) {
                 alert('Sesión cerrada. ¡Hasta pronto!');
             }
+        });
+
+        // ========== FUNCIONALIDAD DE AGREGAR AMIGOS ==========
+        const addFriendBtns = document.querySelectorAll('.add-friend-btn');
+        let addedFriends = JSON.parse(localStorage.getItem('addedFriends')) || [];
+
+        function updateFriendsCount() {
+            const friendsModal = document.getElementById('friendsModal');
+            if (friendsModal) {
+                const friendCount = addedFriends.length;
+                const header = friendsModal.querySelector('.menu-modal-header h2');
+                if (header) {
+                    header.textContent = `👥 Mis Amigos (${friendCount})`;
+                }
+            }
+        }
+
+        // Actualizar contador al cargar
+        updateFriendsCount();
+
+        addFriendBtns.forEach(btn => {
+            const suggestion = btn.closest('.suggestion');
+            const friendId = suggestion.dataset.friendId;
+            const friendName = suggestion.dataset.friendName;
+            const friendImage = suggestion.dataset.friendImage;
+            const friendBio = suggestion.dataset.friendBio;
+
+            // Verificar si ya fue agregado
+            const alreadyAdded = addedFriends.some(f => f.id == friendId);
+            if (alreadyAdded) {
+                btn.textContent = '✓ Amigo';
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'default';
+            }
+
+            btn.addEventListener('click', () => {
+                if (btn.textContent === '✓ Amigo') return;
+
+                // Agregar amigo
+                const newFriend = {
+                    id: friendId,
+                    name: friendName,
+                    image: friendImage,
+                    bio: friendBio
+                };
+
+                addedFriends.push(newFriend);
+                localStorage.setItem('addedFriends', JSON.stringify(addedFriends));
+
+                // Actualizar botón
+                btn.textContent = '✓ Amigo';
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'default';
+
+                // Actualizar modal de amigos
+                addFriendToModal(newFriend);
+
+                // Actualizar contador
+                updateFriendsCount();
+
+                // Mostrar notificación
+                alert(`¡${friendName} ha sido agregado a tus amigos! 🎉`);
+            });
+        });
+
+        // Función para agregar amigo al modal
+        function addFriendToModal(friend) {
+            const friendsList = document.getElementById('friendsList');
+            
+            // Verificar si ya existe
+            const exists = friendsList.querySelector(`[data-friend-id="${friend.id}"]`);
+            if (exists) return;
+
+            const friendItem = document.createElement('div');
+            friendItem.className = 'friend-item';
+            friendItem.dataset.friendId = friend.id;
+            friendItem.innerHTML = `
+                <img src="${friend.image}" alt="${friend.name}">
+                <div class="friend-info">
+                    <h4>${friend.name}</h4>
+                    <p>${friend.bio}</p>
+                </div>
+                <button class="friend-action-btn remove-friend-btn" data-friend-id="${friend.id}">Remover</button>
+            `;
+
+            friendsList.insertBefore(friendItem, friendsList.firstChild);
+
+            // Agregar listener al botón de remover
+            const removeBtn = friendItem.querySelector('.remove-friend-btn');
+            removeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                removeFriend(friend.id, friend.name);
+            });
+        }
+
+        // Función para remover amigo
+        function removeFriend(friendId, friendName) {
+            // Remover de la lista global
+            addedFriends = addedFriends.filter(f => f.id != friendId);
+            localStorage.setItem('addedFriends', JSON.stringify(addedFriends));
+
+            // Remover del DOM (modal)
+            const friendsList = document.getElementById('friendsList');
+            const friendItem = friendsList.querySelector(`[data-friend-id="${friendId}"]`);
+            if (friendItem) {
+                friendItem.remove();
+            }
+
+            // Actualizar botón de sugerencia
+            const suggestionBtn = document.querySelector(`.add-friend-btn[data-friend-id="${friendId}"]`);
+            if (suggestionBtn) {
+                suggestionBtn.textContent = '+';
+                suggestionBtn.disabled = false;
+                suggestionBtn.style.opacity = '1';
+                suggestionBtn.style.cursor = 'pointer';
+            }
+
+            // Actualizar contador
+            updateFriendsCount();
+
+            // Mostrar notificación
+            alert(`${friendName} ha sido removido de tus amigos.`);
+        }
+
+        // Cargar amigos agregados al iniciar
+        addedFriends.forEach(friend => {
+            addFriendToModal(friend);
         });
 
         document.querySelectorAll('.settings-btn').forEach(btn => {

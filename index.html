@@ -479,6 +479,236 @@
         </div>
     </div>
 
+    <!-- MODALES DEL MENÚ -->
+    
+    <!-- MODAL AMIGOS -->
+    <div id="friendsModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>👥 Mis Amigos</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('friendsModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body">
+                <div class="friend-item">
+                    <img src="imagenes/avatars/user2.jpg" alt="Ana María">
+                    <div class="friend-info">
+                        <h4>Ana María</h4>
+                        <p>Desarrolladora Frontend</p>
+                    </div>
+                    <button class="friend-action-btn">Ver perfil</button>
+                </div>
+                <div class="friend-item">
+                    <img src="imagenes/avatars/user3.jpg" alt="Carlos">
+                    <div class="friend-info">
+                        <h4>Carlos López</h4>
+                        <p>Diseñador Gráfico</p>
+                    </div>
+                    <button class="friend-action-btn">Ver perfil</button>
+                </div>
+                <div class="friend-item">
+                    <img src="imagenes/avatars/user4.jpg" alt="María">
+                    <div class="friend-info">
+                        <h4>María González</h4>
+                        <p>Diseñadora Web</p>
+                    </div>
+                    <button class="friend-action-btn">Ver perfil</button>
+                </div>
+                <div class="friend-item">
+                    <img src="imagenes/avatars/user5.jpg" alt="Pedro">
+                    <div class="friend-info">
+                        <h4>Pedro Rodríguez</h4>
+                        <p>Desarrollador Full Stack</p>
+                    </div>
+                    <button class="friend-action-btn">Ver perfil</button>
+                </div>
+                <div class="friend-item">
+                    <img src="imagenes/avatars/user6.jpg" alt="Laura">
+                    <div class="friend-info">
+                        <h4>Laura Martínez</h4>
+                        <p>Especialista en UX/UI</p>
+                    </div>
+                    <button class="friend-action-btn">Ver perfil</button>
+                </div>
+                <div class="friend-item">
+                    <img src="imagenes/avatars/user7.jpg" alt="Juan">
+                    <div class="friend-info">
+                        <h4>Juan Pérez</h4>
+                        <p>Desarrollador Backend</p>
+                    </div>
+                    <button class="friend-action-btn">Ver perfil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FOTOS -->
+    <div id="photosModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>📸 Mis Fotos</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('photosModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body photo-gallery">
+                <img src="imagenes/posts/post1.jpg" alt="Foto 1" class="gallery-photo clickable-image">
+                <img src="imagenes/posts/post2.jpg" alt="Foto 2" class="gallery-photo clickable-image">
+                <img src="imagenes/posts/post3.jpg" alt="Foto 3" class="gallery-photo clickable-image">
+                <img src="imagenes/posts/post4.jpg" alt="Foto 4" class="gallery-photo clickable-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL GUARDADOS -->
+    <div id="savedModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>💾 Posts Guardados</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('savedModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body saved-posts">
+                <div class="saved-post-item">
+                    <img src="imagenes/posts/post1.jpg" alt="Post guardado 1">
+                    <div class="saved-post-info">
+                        <h4>¡Hoy fue un excelente día de desarrollo!</h4>
+                        <p>Guardado hace 2 días</p>
+                    </div>
+                </div>
+                <div class="saved-post-item">
+                    <img src="imagenes/posts/post2.jpg" alt="Post guardado 2">
+                    <div class="saved-post-info">
+                        <h4>¡Compartiendo consejos de diseño responsivo!</h4>
+                        <p>Guardado hace 5 días</p>
+                    </div>
+                </div>
+                <div class="saved-post-item">
+                    <img src="imagenes/posts/post3.jpg" alt="Post guardado 3">
+                    <div class="saved-post-info">
+                        <h4>Proyecto finalizado con CSS Grid</h4>
+                        <p>Guardado hace 1 semana</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONFIGURACIÓN -->
+    <div id="settingsModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>⚙️ Configuración</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('settingsModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body settings-list">
+                <div class="settings-item">
+                    <div class="settings-info">
+                        <h4>Privacidad</h4>
+                        <p>Controla quién puede ver tu perfil</p>
+                    </div>
+                    <input type="checkbox" checked>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-info">
+                        <h4>Notificaciones</h4>
+                        <p>Recibe alertas de actividad</p>
+                    </div>
+                    <input type="checkbox" checked>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-info">
+                        <h4>Modo oscuro</h4>
+                        <p>Tema oscuro para la interfaz</p>
+                    </div>
+                    <input type="checkbox">
+                </div>
+                <div class="settings-item">
+                    <div class="settings-info">
+                        <h4>Actualizar perfil</h4>
+                        <p>Editar información personal</p>
+                    </div>
+                    <button class="settings-btn">Editar</button>
+                </div>
+                <button class="logout-btn">🚪 Cerrar sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALES DE COMUNIDADES -->
+    
+    <!-- MODAL GAMING -->
+    <div id="gamingModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>🎮 Comunidad Gaming</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('gamingModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body community-content">
+                <div class="community-post">
+                    <h3>Últimos posts de Gaming</h3>
+                    <p>📌 Nuevo juego lanzado: The Witcher 4</p>
+                    <p>🎯 Torneo de esports este fin de semana</p>
+                    <p>🕹️ Review exclusivo de PlayStation 5</p>
+                </div>
+                <button class="join-community-btn">Unirse a Gaming</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FITNESS -->
+    <div id="fitnessModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>🏋️ Comunidad Fitness</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('fitnessModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body community-content">
+                <div class="community-post">
+                    <h3>Últimos posts de Fitness</h3>
+                    <p>💪 Reto de 30 días de entrenamiento</p>
+                    <p>🥗 Guía de nutrición y dieta saludable</p>
+                    <p>🏃 Entrenamientos para principiantes</p>
+                </div>
+                <button class="join-community-btn">Unirse a Fitness</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL COMIDA -->
+    <div id="foodModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>🍕 Comunidad Comida</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('foodModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body community-content">
+                <div class="community-post">
+                    <h3>Últimos posts de Comida</h3>
+                    <p>🍖 Receta: Pollo al ajillo casero</p>
+                    <p>🍜 Mejores restaurantes de la ciudad</p>
+                    <p>🥘 Comida internacional: Tacos mexicanos</p>
+                </div>
+                <button class="join-community-btn">Unirse a Comida</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIAJES -->
+    <div id="travelsModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="menu-modal-header">
+                <h2>✈️ Comunidad Viajes</h2>
+                <span class="menu-modal-close" onclick="closeMenuModal('travelsModal')">&times;</span>
+            </div>
+            <div class="menu-modal-body community-content">
+                <div class="community-post">
+                    <h3>Últimos posts de Viajes</h3>
+                    <p>🏖️ Destinos de playa para este verano</p>
+                    <p>⛰️ Rutas de montañismo en Sudamérica</p>
+                    <p>✈️ Vuelos con descuento a Asia</p>
+                </div>
+                <button class="join-community-btn">Unirse a Viajes</button>
+            </div>
+        </div>
+    </div>
+
     <!-- SCRIPT COMPLETO: CÁMARA, LIGHTBOX, LIKES, COMENTARIOS, PERFIL, NOTIFICACIONES Y MENSAJES -->
     <script>
         // ========== FUNCIONALIDAD DE NOTIFICACIONES ==========
@@ -1107,6 +1337,121 @@
         }
 
         window.addEventListener('load', initImages);
+
+        // ========== FUNCIONALIDAD DEL MENÚ ==========
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        // Mapeo de items del menú a modales
+        const menuToModal = {
+            'Inicio': null, // No abre modal, solo navega
+            '📰 Inicio': null,
+            'Amigos': 'friendsModal',
+            '👥 Amigos': 'friendsModal',
+            'Fotos': 'photosModal',
+            '📸 Fotos': 'photosModal',
+            'Guardados': 'savedModal',
+            '💾 Guardados': 'savedModal',
+            'Configuración': 'settingsModal',
+            '⚙️ Configuración': 'settingsModal',
+            'Gaming': 'gamingModal',
+            '🎮 Gaming': 'gamingModal',
+            'Fitness': 'fitnessModal',
+            '🏋️ Fitness': 'fitnessModal',
+            'Comida': 'foodModal',
+            '🍕 Comida': 'foodModal',
+            'Viajes': 'travelsModal',
+            '✈️ Viajes': 'travelsModal'
+        };
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remover clase active de todos los items
+                menuItems.forEach(m => m.classList.remove('active'));
+                
+                // Agregar clase active al item clickeado
+                item.classList.add('active');
+                
+                // Obtener el texto completo del item
+                const itemText = item.textContent.trim();
+                
+                // Encontrar el modal correspondiente
+                let modalId = null;
+                
+                // Buscar por coincidencia exacta primero
+                for (const key in menuToModal) {
+                    if (itemText.includes(key.replace('📰 ', '').replace('👥 ', '').replace('📸 ', '').replace('💾 ', '').replace('⚙️ ', '').replace('🎮 ', '').replace('🏋️ ', '').replace('🍕 ', '').replace('✈️ ', ''))) {
+                        modalId = menuToModal[key];
+                        break;
+                    }
+                }
+                
+                // Si es Inicio, solo mostrar feed
+                if (itemText.includes('Inicio') || itemText.includes('📰')) {
+                    document.querySelectorAll('.menu-modal').forEach(m => m.style.display = 'none');
+                    return;
+                }
+                
+                // Si hay un modal correspondiente, abrirlo
+                if (modalId) {
+                    closeAllMenuModals();
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.style.display = 'flex';
+                    }
+                }
+            });
+        });
+
+        // Función para cerrar todos los modales del menú
+        function closeAllMenuModals() {
+            const modals = document.querySelectorAll('.menu-modal');
+            modals.forEach(m => m.style.display = 'none');
+        }
+
+        // Función para cerrar un modal específico
+        function closeMenuModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Cerrar modales al hacer click fuera de ellos
+        document.addEventListener('click', (e) => {
+            const modals = document.querySelectorAll('.menu-modal');
+            modals.forEach(modal => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Funcionalidad de botones dentro de los modales
+        document.querySelectorAll('.friend-action-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Perfil del amigo abierto');
+            });
+        });
+
+        document.querySelectorAll('.join-community-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('¡A unido a esta comunidad! 🎉');
+            });
+        });
+
+        document.querySelector('.logout-btn').addEventListener('click', () => {
+            if (confirm('¿Deseas cerrar sesión?')) {
+                alert('Sesión cerrada. ¡Hasta pronto!');
+            }
+        });
+
+        document.querySelectorAll('.settings-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Editar perfil abierto');
+            });
+        });
 
         window.addEventListener('beforeunload', () => {
             if (stream) {

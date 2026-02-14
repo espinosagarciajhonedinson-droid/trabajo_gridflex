@@ -56,19 +56,20 @@
             <div class="create-post">
                 <div class="user-profile">
                     <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu perfil" class="profile-pic">
-                    <input type="text" placeholder="¿En qué estás pensando?" class="post-input">
+                    <input type="text" placeholder="¿En qué estás pensando?" class="post-input" id="postText">
                 </div>
                 <div class="post-actions">
-                    <button class="post-btn">📷 Foto</button>
-                    <button class="post-btn">😊 Emoji</button>
-                    <button class="post-btn">📍 Ubicación</button>
+                    <button class="post-btn" id="cameraBtn" title="Abrir cámara">📷 Foto</button>
+                    <button class="post-btn" id="galleryBtn" title="Subir archivo">🎨 Galería</button>
+                    <button class="post-btn" id="publishBtn" title="Publicar post">📤 Publicar</button>
                 </div>
+                <input type="file" id="galleryInput" accept="image/*" style="display: none;">
             </div>
 
             <!-- POST 1 -->
             <article class="post">
                 <div class="post-header">
-                    <img src="https://ui-avatars.com/api/?name=Jhon+Espinosa&background=667eea&color=fff" alt="Usuario" class="profile-pic-small">
+                <img src="imagenes/avatars/user1.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
                     <div class="post-info">
                         <h4>Jhon Espinosa</h4>
                         <span class="post-time">hace 2 horas</span>
@@ -80,7 +81,8 @@
                     <p>¡Hoy fue un excelente día de desarrollo! Acabo de terminar un proyecto con Grid y Flexbox. ¿Qué dicen ustedes de las nuevas técnicas de CSS?</p>
                 </div>
 
-                <img src="https://picsum.photos/600/400?random=1" alt="Contenido del post" class="post-image clickable-image">
+                <img src="imagenes/posts/post1.jpg" alt="Contenido del post" class="post-image clickable-image" onerror="this.src='imagenes/posts/post1.jpg';">
+                <img src="imagenes/posts/post1.jpg" alt="Post 1" hidden>
 
                 <div class="post-stats">
                     <span>👍 234 me gusta</span>
@@ -97,7 +99,7 @@
                 <!-- COMENTARIOS -->
                 <div class="comments-section">
                     <div class="comment">
-                        <img src="https://ui-avatars.com/api/?name=Ana+Maria&background=764ba2&color=fff" alt="Comentario" class="comment-pic">
+                        <img src="imagenes/avatars/user2.jpg" alt="Comentario" class="comment-pic" onerror="this.style.display='none'">
                         <div class="comment-content">
                             <strong>Ana María</strong>
                             <p>¡Excelente trabajo! CSS ha evolucionado mucho.</p>
@@ -105,7 +107,7 @@
                         </div>
                     </div>
                     <div class="comment">
-                        <img src="https://ui-avatars.com/api/?name=Carlos&background=667eea&color=fff" alt="Comentario" class="comment-pic">
+                        <img src="imagenes/avatars/user3.jpg" alt="Comentario" class="comment-pic" onerror="this.style.display='none'">
                         <div class="comment-content">
                             <strong>Carlos</strong>
                             <p>Me encanta cómo se ve. ¿Cuál es tu fuente favorita?</p>
@@ -115,7 +117,7 @@
                 </div>
 
                 <div class="comment-input">
-                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu foto" class="comment-pic">
+                    <img src="imagenes/avatars/user2.jpg" alt="Tu foto" class="comment-pic" onerror="this.style.display='none'">
                     <input type="text" placeholder="Escribe un comentario..." class="comment-field">
                 </div>
             </article>
@@ -123,7 +125,7 @@
             <!-- POST 2 -->
             <article class="post">
                 <div class="post-header">
-                    <img src="https://ui-avatars.com/api/?name=Maria+Gonzalez&background=50C878&color=fff" alt="Usuario" class="profile-pic-small">
+                    <img src="imagenes/avatars/user4.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
                     <div class="post-info">
                         <h4>María González</h4>
                         <span class="post-time">hace 4 horas</span>
@@ -134,7 +136,7 @@
                 <div class="post-content">
                     <p>¡Compartiendo algunos consejos sobre diseño responsivo! 🎨</p>
                 </div>
-                <img src="https://picsum.photos/600/400?random=2" alt="Diseño responsivo" class="post-image clickable-image">
+                <img src="imagenes/posts/post2.jpg" alt="Diseño responsivo" class="post-image clickable-image" onerror="this.src='imagenes/posts/post2.jpg';">
 
                 <div class="post-stats">
                     <span>👍 512 me gusta</span>
@@ -152,7 +154,7 @@
             <!-- POST 3 -->
             <article class="post">
                 <div class="post-header">
-                    <img src="https://ui-avatars.com/api/?name=Pedro+Rodriguez&background=FF6B6B&color=fff" alt="Usuario" class="profile-pic-small">
+                    <img src="imagenes/avatars/user5.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
                     <div class="post-info">
                         <h4>Pedro Rodríguez</h4>
                         <span class="post-time">hace 6 horas</span>
@@ -164,7 +166,7 @@
                     <p>Les presento mi nuevo proyecto: Una plataforma de aprendizaje con Grid y Flexbox. El código es limpio y responsivo. ¿Qué les parece?</p>
                 </div>
 
-                <img src="https://picsum.photos/600/400?random=3" alt="Proyecto" class="post-image clickable-image">
+                <img src="imagenes/posts/post3.jpg" alt="Proyecto" class="post-image clickable-image" onerror="this.src='imagenes/posts/post3.jpg';">
 
                 <div class="post-stats">
                     <span>👍 1.2K me gusta</span>
@@ -182,7 +184,7 @@
             <!-- POST 4 -->
             <article class="post">
                 <div class="post-header">
-                    <img src="https://ui-avatars.com/api/?name=Laura+Martinez&background=4ECDC4&color=fff" alt="Usuario" class="profile-pic-small">
+                    <img src="imagenes/avatars/user6.jpg" alt="Usuario" class="profile-pic-small" onerror="this.style.display='none'">
                     <div class="post-info">
                         <h4>Laura Martínez</h4>
                         <span class="post-time">hace 8 horas</span>
@@ -193,7 +195,7 @@
                 <div class="post-content">
                     <p>¡Nuevo día, nuevas oportunidades! 💪 Trabajando en mejorar mis habilidades en CSS Grid.</p>
                 </div>
-                <img src="https://picsum.photos/600/400?random=4" alt="Día de trabajo" class="post-image clickable-image">
+                <img src="imagenes/posts/post4.jpg" alt="Día de trabajo" class="post-image clickable-image" onerror="this.src='imagenes/posts/post4.jpg';">
 
                 <div class="post-stats">
                     <span>👍 789 me gusta</span>
@@ -215,7 +217,7 @@
             <div class="widget-box">
                 <h3 class="widget-title">👥 Sugerencias de amigos</h3>
                 <div class="suggestion">
-                    <img src="https://ui-avatars.com/api/?name=Diego+Lopez&background=FFD93D&color=000" alt="Sugerencia" class="suggestion-pic">
+                    <img src="imagenes/avatars/user1.jpg" alt="Sugerencia" class="suggestion-pic" onerror="this.style.display='none'">
                     <div class="suggestion-info">
                         <h5>Diego López</h5>
                         <p>5 amigos en común</p>
@@ -223,7 +225,7 @@
                     <button class="add-btn">+</button>
                 </div>
                 <div class="suggestion">
-                    <img src="https://ui-avatars.com/api/?name=Sofia+Ruiz&background=A8E6CF&color=000" alt="Sugerencia" class="suggestion-pic">
+                    <img src="imagenes/avatars/user5.jpg" alt="Sugerencia" class="suggestion-pic" onerror="this.style.display='none'">
                     <div class="suggestion-info">
                         <h5>Sofia Ruiz</h5>
                         <p>12 amigos en común</p>
@@ -231,7 +233,7 @@
                     <button class="add-btn">+</button>
                 </div>
                 <div class="suggestion">
-                    <img src="https://ui-avatars.com/api/?name=Juan+Perez&background=FF8B94&color=fff" alt="Sugerencia" class="suggestion-pic">
+                    <img src="imagenes/avatars/user7.jpg" alt="Sugerencia" class="suggestion-pic" onerror="this.style.display='none'">
                     <div class="suggestion-info">
                         <h5>Juan Pérez</h5>
                         <p>8 amigos en común</p>
@@ -292,6 +294,23 @@
         <p>Construido con Grid | Flexbox | Float | Responsive Design</p>
     </footer>
 
+    <!-- MODAL CÁMARA -->
+    <div id="cameraModal" class="camera-modal">
+        <div class="camera-container">
+            <span class="camera-close">&times;</span>
+            <h3>📷 Capturar Foto</h3>
+            <div class="camera-wrapper">
+                <video id="cameraStream" autoplay playsinline></video>
+                <canvas id="photoCanvas" style="display: none;"></canvas>
+            </div>
+            <div class="camera-controls">
+                <button id="captureBtn" class="camera-btn capture-btn">📸 Capturar</button>
+                <button id="retakeBtn" class="camera-btn retake-btn" style="display: none;">🔄 Reintentar</button>
+                <button id="usePhotoBtn" class="camera-btn use-btn" style="display: none;">✓ Usar Foto</button>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL LIGHTBOX -->
     <div id="imageModal" class="modal">
         <span class="modal-close">&times;</span>
@@ -302,8 +321,172 @@
         </div>
     </div>
 
-    <!-- SCRIPT LIGHTBOX -->
+    <!-- SCRIPT CÁMARA Y LIGHTBOX ROBUSTO -->
     <script>
+        // ========== FUNCIONALIDAD DE CÁMARA ==========
+        const cameraModal = document.getElementById('cameraModal');
+        const cameraStream = document.getElementById('cameraStream');
+        const photoCanvas = document.getElementById('photoCanvas');
+        const cameraClose = document.querySelector('.camera-close');
+        const cameraBtn = document.getElementById('cameraBtn');
+        const captureBtn = document.getElementById('captureBtn');
+        const retakeBtn = document.getElementById('retakeBtn');
+        const usePhotoBtn = document.getElementById('usePhotoBtn');
+        const galleryBtn = document.getElementById('galleryBtn');
+        const galleryInput = document.getElementById('galleryInput');
+        const publishBtn = document.getElementById('publishBtn');
+        const postText = document.getElementById('postText');
+
+        let stream = null;
+        let capturedImage = null;
+        let ctx = photoCanvas.getContext('2d');
+
+        // Abrir cámara
+        cameraBtn.addEventListener('click', async () => {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
+                });
+                cameraStream.srcObject = stream;
+                cameraModal.style.display = 'flex';
+                captureBtn.style.display = 'block';
+                retakeBtn.style.display = 'none';
+                usePhotoBtn.style.display = 'none';
+                postText.value = '';
+            } catch (error) {
+                console.error('Error accediendo a cámara:', error);
+                alert('No se pudo acceder a la cámara. Detalles: ' + error.message);
+            }
+        });
+
+        // Capturar foto
+        captureBtn.addEventListener('click', () => {
+            photoCanvas.width = cameraStream.videoWidth;
+            photoCanvas.height = cameraStream.videoHeight;
+            ctx.drawImage(cameraStream, 0, 0);
+            
+            capturedImage = photoCanvas.toDataURL('image/jpeg', 0.9);
+            
+            // Mostrar preview
+            cameraStream.style.display = 'none';
+            photoCanvas.style.display = 'block';
+            
+            captureBtn.style.display = 'none';
+            retakeBtn.style.display = 'block';
+            usePhotoBtn.style.display = 'block';
+        });
+
+        // Reintentar
+        retakeBtn.addEventListener('click', () => {
+            cameraStream.style.display = 'block';
+            photoCanvas.style.display = 'none';
+            captureBtn.style.display = 'block';
+            retakeBtn.style.display = 'none';
+            usePhotoBtn.style.display = 'none';
+            ctx.clearRect(0, 0, photoCanvas.width, photoCanvas.height);
+        });
+
+        // Usar foto capturada
+        usePhotoBtn.addEventListener('click', () => {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            cameraModal.style.display = 'none';
+            cameraStream.style.display = 'block';
+            photoCanvas.style.display = 'none';
+            
+            // Agregar foto al post actual
+            createPostWithPhoto(capturedImage);
+        });
+
+        // Cerrar cámara
+        cameraClose.addEventListener('click', () => {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            cameraModal.style.display = 'none';
+            cameraStream.style.display = 'block';
+            photoCanvas.style.display = 'none';
+            captureBtn.style.display = 'block';
+            retakeBtn.style.display = 'none';
+            usePhotoBtn.style.display = 'none';
+        });
+
+        // Galería
+        galleryBtn.addEventListener('click', () => {
+            galleryInput.click();
+        });
+
+        galleryInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    createPostWithPhoto(event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Crear post con foto
+        function createPostWithPhoto(imageDataUrl) {
+            const postContent = postText.value || '¡Compartiendo mi momento! 📸';
+            const now = new Date();
+            const timeString = 'ahora';
+
+            const newPost = document.createElement('article');
+            newPost.className = 'post';
+            newPost.innerHTML = `
+                <div class="post-header">
+                    <img src="imagenes/WhatsApp Image 2026-02-09 at 19.18.27.jpeg" alt="Tu perfil" class="profile-pic-small">
+                    <div class="post-info">
+                        <h4>Jhon Espinosa (Tú)</h4>
+                        <span class="post-time">${timeString}</span>
+                    </div>
+                    <span class="post-menu">⋯</span>
+                </div>
+                
+                <div class="post-content">
+                    <p>${postContent}</p>
+                </div>
+
+                <img src="${imageDataUrl}" alt="Foto capturada" class="post-image clickable-image" onerror="this.style.display='none';">
+
+                <div class="post-stats">
+                    <span>👍 0 me gusta</span>
+                    <span>💬 0 comentarios</span>
+                    <span>↗️ 0 compartidos</span>
+                </div>
+
+                <div class="post-actions-footer">
+                    <button class="action-btn">👍 Me gusta</button>
+                    <button class="action-btn">💬 Comentar</button>
+                    <button class="action-btn">↗️ Compartir</button>
+                </div>
+            `;
+
+            const feed = document.querySelector('.feed');
+            const firstPost = feed.querySelector('.post');
+            feed.insertBefore(newPost, firstPost);
+
+            // Agregar evento click a la nueva imagen
+            const newImage = newPost.querySelector('.clickable-image');
+            if (newImage) {
+                newImage.style.cursor = 'pointer';
+                newImage.addEventListener('click', () => {
+                    currentImageIndex = images.length;
+                    modalImage.src = imageDataUrl;
+                    modalImage.alt = 'Foto capturada';
+                    modal.style.display = 'flex';
+                });
+                images.push({ src: imageDataUrl, alt: 'Foto capturada', element: newImage });
+            }
+
+            postText.value = '';
+            alert('¡Post publicado exitosamente! 🎉');
+        }
+
+        // ========== FUNCIONALIDAD LIGHTBOX ==========
         const modal = document.getElementById('imageModal');
         const modalImage = document.querySelector('.modal-image');
         const closeBtn = document.querySelector('.modal-close');
@@ -314,56 +497,119 @@
         let currentImageIndex = 0;
         let images = [];
 
-        // Inicializar array de imágenes
-        function initImages() {
-            images = Array.from(clickableImages).map(img => img.src);
+        function handleImageError(img) {
+            console.warn('Error cargando imagen:', img.src);
+            img.style.display = 'none';
         }
 
-        // Abrir modal
+        function initImages() {
+            images = Array.from(clickableImages)
+                .filter(img => img.offsetHeight > 0)
+                .map(img => ({
+                    src: img.src,
+                    alt: img.alt,
+                    element: img
+                }));
+        }
+
+        function preloadImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(src);
+                img.onerror = () => reject(new Error('Error cargando: ' + src));
+                img.src = src;
+            });
+        }
+
         clickableImages.forEach((img, index) => {
             img.style.cursor = 'pointer';
-            img.addEventListener('click', () => {
-                currentImageIndex = index;
-                modalImage.src = images[currentImageIndex];
-                modal.style.display = 'flex';
+            img.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                
+                const imgIndex = images.findIndex(item => item.element === img);
+                if (imgIndex === -1) return;
+                
+                currentImageIndex = imgIndex;
+                
+                try {
+                    await preloadImage(images[currentImageIndex].src);
+                    modalImage.src = images[currentImageIndex].src;
+                    modalImage.alt = images[currentImageIndex].alt;
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                } catch (error) {
+                    console.error('No se pudo abrir la imagen:', error);
+                }
             });
+            
+            img.addEventListener('error', () => handleImageError(img));
         });
 
-        // Cerrar modal
         closeBtn.addEventListener('click', () => {
             modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
 
-        // Cerrar modal al hacer click fuera
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         });
 
-        // Navegación siguiente
-        nextBtn.addEventListener('click', () => {
+        async function nextImage() {
+            if (images.length === 0) return;
             currentImageIndex = (currentImageIndex + 1) % images.length;
-            modalImage.src = images[currentImageIndex];
-        });
+            try {
+                await preloadImage(images[currentImageIndex].src);
+                modalImage.src = images[currentImageIndex].src;
+                modalImage.alt = images[currentImageIndex].alt;
+            } catch (error) {
+                console.error('Error navegando:', error);
+            }
+        }
 
-        // Navegación anterior
-        prevBtn.addEventListener('click', () => {
+        async function prevImage() {
+            if (images.length === 0) return;
             currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            modalImage.src = images[currentImageIndex];
-        });
+            try {
+                await preloadImage(images[currentImageIndex].src);
+                modalImage.src = images[currentImageIndex].src;
+                modalImage.alt = images[currentImageIndex].alt;
+            } catch (error) {
+                console.error('Error navegando:', error);
+            }
+        }
 
-        // Navegación por teclado
+        nextBtn.addEventListener('click', nextImage);
+        prevBtn.addEventListener('click', prevImage);
+
         document.addEventListener('keydown', (e) => {
             if (modal.style.display === 'flex') {
-                if (e.key === 'ArrowRight') nextBtn.click();
-                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
                 if (e.key === 'Escape') closeBtn.click();
             }
         });
 
-        // Inicializar
-        initImages();
+        modalImage.addEventListener('error', () => {
+            modalImage.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%23cccccc" width="600" height="400"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23666" font-size="20"%3EImagen no disponible%3C/text%3E%3C/svg%3E';
+        });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initImages);
+        } else {
+            initImages();
+        }
+
+        window.addEventListener('load', initImages);
+
+        // Cleanup de cámara al cerrar página
+        window.addEventListener('beforeunload', () => {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+        });
     </script>
 </body>
 </html>
